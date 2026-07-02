@@ -107,7 +107,7 @@ class VotingApp {
     }
 
     resetToDefaults() {
-        this.votes = generateStatFiller();
+        this.votes = [];
         this.saveData();
     }
 
@@ -254,7 +254,7 @@ class VotingApp {
         if (total === 0) {
             this.statAvgRating.textContent = "0.0";
             this.statTopPlatform.textContent = "無資料";
-            this.renderCharts({ platforms: {}, applications: {} });
+            this.renderCharts({}, {});
             this.renderComments();
             return;
         }
