@@ -268,19 +268,33 @@
                             </div>
                         </div>
 
-                        <!-- Reset / Management -->
-                        <div class="control-card glass-card">
-                            <h3 class="chart-title"><i data-lucide="settings"></i> 投票管理</h3>
-                            <p class="control-desc">本網站使用本機儲存空間 (LocalStorage) 記錄投票。若您需要重新測試或模擬投票，可清除資料以還原為預設展示數據。</p>
-                            <div class="control-actions">
-                                <button id="btn-reset" class="btn-secondary">
-                                    <i data-lucide="rotate-ccw"></i>
-                                    <span>重設本機數據</span>
-                                </button>
-                                <button id="btn-vote-again" class="btn-primary-outline">
-                                    <i data-lucide="plus-circle"></i>
-                                    <span>再投一票</span>
-                                </button>
+                        <!-- Sidebar Actions & QR -->
+                        <div class="details-sidebar">
+                            <!-- QR Code Card -->
+                            <div class="share-card glass-card">
+                                <h3 class="chart-title"><i data-lucide="qr-code"></i> 手機掃描投票</h3>
+                                <div class="share-content">
+                                    <div class="qrcode-wrapper">
+                                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://ai-voting-app-delta.vercel.app&color=ffffff&bgcolor=0c0a20" alt="Vercel QR Code" class="qrcode-img">
+                                    </div>
+                                    <p class="share-desc">掃描 QR Code，即可在手機或平板裝置上快速開啟本站並參與投票！</p>
+                                </div>
+                            </div>
+
+                            <!-- Reset / Management -->
+                            <div class="control-card glass-card">
+                                <h3 class="chart-title"><i data-lucide="settings"></i> 投票管理</h3>
+                                <p class="control-desc">本網站使用本機儲存空間 (LocalStorage) 記錄投票。若您需要重新測試或模擬投票，可清除資料。</p>
+                                <div class="control-actions">
+                                    <button id="btn-reset" class="btn-secondary">
+                                        <i data-lucide="rotate-ccw"></i>
+                                        <span>重設本機數據</span>
+                                    </button>
+                                    <button id="btn-vote-again" class="btn-primary-outline">
+                                        <i data-lucide="plus-circle"></i>
+                                        <span>再投一票</span>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
