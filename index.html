@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 平台使用調查 - 探索智慧新視界</title>
+    <meta name="description" content="參與 AI 平台使用調查投票，分享您最常用的 AI 工具、主要應用領域與滿意度，並即時查看全球使用者的統計數據。">
+    <!-- Google Fonts: Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Custom Style -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background Grid and Glows -->
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+    <div class="bg-glow bg-glow-3"></div>
+    <div class="bg-grid"></div>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <i data-lucide="cpu" class="logo-icon"></i>
+                <span class="logo-text">AI.VOTE</span>
+            </div>
+            <nav class="nav-tabs" role="tablist">
+                <button class="nav-tab active" id="tab-vote" role="tab" aria-selected="true" aria-controls="panel-vote">
+                    <i data-lucide="vote" class="tab-icon"></i>
+                    <span>參與投票</span>
+                </button>
+                <button class="nav-tab" id="tab-results" role="tab" aria-selected="false" aria-controls="panel-results">
+                    <i data-lucide="bar-chart-3" class="tab-icon"></i>
+                    <span>即時結果</span>
+                </button>
+            </nav>
+        </header>
+
+        <!-- Main Content Wrapper -->
+        <main class="main-content">
+            <!-- Hero Title -->
+            <div class="hero-section">
+                <h1 class="hero-title">您最常使用哪款 <span class="gradient-text">AI 平台</span>？</h1>
+                <p class="hero-subtitle">分享您的 AI 使用經驗，協助我們描繪生成式人工智慧在工作與生活中的真實面貌。</p>
+            </div>
+
+            <!-- Panel 1: Voting Form -->
+            <section class="panel active" id="panel-vote" role="tabpanel" aria-labelledby="tab-vote">
+                <form id="vote-form" class="glass-card">
+                    <!-- Q1: AI Platform -->
+                    <div class="form-group">
+                        <label class="section-title">
+                            <span class="badge">1</span>
+                            您最常使用的 AI 平台？ <span class="required">*</span>
+                        </label>
+                        <div class="grid-options platform-grid">
+                            <!-- ChatGPT -->
+                            <label class="option-card platform-card">
+                                <input type="radio" name="platform" value="ChatGPT" required>
+                                <span class="card-content">
+                                    <span class="platform-icon chatgpt-icon"><i data-lucide="message-square"></i></span>
+                                    <span class="option-name">ChatGPT</span>
+                                    <span class="option-desc">OpenAI 強大全能助理</span>
+                                </span>
+                            </label>
+                            <!-- Claude -->
+                            <label class="option-card platform-card">
+                                <input type="radio" name="platform" value="Claude">
+                                <span class="card-content">
+                                    <span class="platform-icon claude-icon"><i data-lucide="book-open"></i></span>
+                                    <span class="option-name">Claude</span>
+                                    <span class="option-desc">Anthropic 邏輯寫作大師</span>
+                                </span>
+                            </label>
+                            <!-- Gemini -->
+                            <label class="option-card platform-card">
+                                <input type="radio" name="platform" value="Gemini">
+                                <span class="card-content">
+                                    <span class="platform-icon gemini-icon"><i data-lucide="sparkles"></i></span>
+                                    <span class="option-name">Gemini</span>
+                                    <span class="option-desc">Google 多模態生態整合</span>
+                                </span>
+                            </label>
+                            <!-- Copilot -->
+                            <label class="option-card platform-card">
+                                <input type="radio" name="platform" value="Copilot">
+                                <span class="card-content">
+                                    <span class="platform-icon copilot-icon"><i data-lucide="code-2"></i></span>
+                                    <span class="option-name">Microsoft Copilot</span>
+                                    <span class="option-desc">微軟辦公與編程副駕駛</span>
+                                </span>
+                            </label>
+                            <!-- Midjourney / Stable Diffusion -->
+                            <label class="option-card platform-card">
+                                <input type="radio" name="platform" value="Midjourney/SD">
+                                <span class="card-content">
+                                    <span class="platform-icon image-icon"><i data-lucide="palette"></i></span>
+                                    <span class="option-name">Midjourney / SD</span>
+                                    <span class="option-desc">視覺創意與影像生成</span>
+                                </span>
+                            </label>
+                            <!-- Local / Open Source -->
+                            <label class="option-card platform-card">
+                                <input type="radio" name="platform" value="Local/OS">
+                                <span class="card-content">
+                                    <span class="platform-icon local-icon"><i data-lucide="terminal"></i></span>
+                                    <span class="option-name">開源 / 本地模型</span>
+                                    <span class="option-desc">Llama, DeepSeek 等自託管</span>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Q2: Application Area -->
+                    <div class="form-group">
+                        <label class="section-title">
+                            <span class="badge">2</span>
+                            您的主要應用領域是？ (單選) <span class="required">*</span>
+                        </label>
+                        <div class="pill-group">
+                            <label class="pill-option">
+                                <input type="radio" name="application" value="Coding" required>
+                                <span><i data-lucide="braces"></i> 程式開發</span>
+                            </label>
+                            <label class="pill-option">
+                                <input type="radio" name="application" value="Writing">
+                                <span><i data-lucide="pen-tool"></i> 寫作創作與翻譯</span>
+                            </label>
+                            <label class="pill-option">
+                                <input type="radio" name="application" value="Research">
+                                <span><i data-lucide="search-code"></i> 學術研究與資料整理</span>
+                            </label>
+                            <label class="pill-option">
+                                <input type="radio" name="application" value="Design">
+                                <span><i data-lucide="paint-bucket"></i> 影像視覺與設計</span>
+                            </label>
+                            <label class="pill-option">
+                                <input type="radio" name="application" value="Business">
+                                <span><i data-lucide="briefcase"></i> 商務企劃與日常辦公</span>
+                            </label>
+                            <label class="pill-option">
+                                <input type="radio" name="application" value="Assistant">
+                                <span><i data-lucide="user"></i> 個人生活秘書</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Q3: Frequency -->
+                    <div class="form-row">
+                        <div class="form-col">
+                            <label class="section-title">
+                                <span class="badge">3</span>
+                                您的使用頻率？ <span class="required">*</span>
+                            </label>
+                            <div class="select-wrapper">
+                                <select name="frequency" required>
+                                    <option value="" disabled selected>請選擇使用頻率</option>
+                                    <option value="Daily">每天多次（深度使用者）</option>
+                                    <option value="DailyOnce">每天大約一次</option>
+                                    <option value="Weekly">每週數次</option>
+                                    <option value="Monthly">每週一次或更少</option>
+                                </select>
+                                <i data-lucide="chevron-down" class="select-arrow"></i>
+                            </div>
+                        </div>
+
+                        <!-- Q4: Satisfaction -->
+                        <div class="form-col">
+                            <label class="section-title">
+                                <span class="badge">4</span>
+                                您對目前 AI 平台的整體滿意度？ <span class="required">*</span>
+                            </label>
+                            <div class="rating-container">
+                                <div class="star-rating">
+                                    <input type="radio" id="star5" name="satisfaction" value="5" required /><label for="star5" title="非常滿意"><i data-lucide="star"></i></label>
+                                    <input type="radio" id="star4" name="satisfaction" value="4" /><label for="star4" title="滿意"><i data-lucide="star"></i></label>
+                                    <input type="radio" id="star3" name="satisfaction" value="3" /><label for="star3" title="普通"><i data-lucide="star"></i></label>
+                                    <input type="radio" id="star2" name="satisfaction" value="2" /><label for="star2" title="不滿意"><i data-lucide="star"></i></label>
+                                    <input type="radio" id="star1" name="satisfaction" value="1" /><label for="star1" title="非常不滿意"><i data-lucide="star"></i></label>
+                                </div>
+                                <span class="rating-label">請評分</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Q5: Comment (Optional) -->
+                    <div class="form-group text-group">
+                        <label class="section-title">
+                            <span class="badge">5</span>
+                            您對 AI 未來發展的看法或回饋 (選填)
+                        </label>
+                        <textarea name="comment" rows="3" placeholder="例如：期待多模態能力的提升、更長的上下文、或者是對隱私保護的顧慮..." maxlength="200"></textarea>
+                        <div class="textarea-footer">
+                            <span class="char-count">0 / 200</span>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="form-submit">
+                        <button type="submit" class="btn-primary" id="btn-submit">
+                            <span class="btn-text">提交我的投票</span>
+                            <i data-lucide="send" class="btn-icon"></i>
+                        </button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Panel 2: Live Results -->
+            <section class="panel" id="panel-results" role="tabpanel" aria-labelledby="tab-results">
+                <div class="results-grid">
+                    <!-- Key Stats Cards -->
+                    <div class="stats-row">
+                        <div class="stat-card glass-card">
+                            <div class="stat-icon"><i data-lucide="users"></i></div>
+                            <div class="stat-info">
+                                <span class="stat-value" id="stat-total-votes">0</span>
+                                <span class="stat-label">累計投票人數</span>
+                            </div>
+                        </div>
+                        <div class="stat-card glass-card">
+                            <div class="stat-icon"><i data-lucide="smile"></i></div>
+                            <div class="stat-info">
+                                <span class="stat-value" id="stat-avg-rating">0.0</span>
+                                <span class="stat-label">平均滿意度 (5★)</span>
+                            </div>
+                        </div>
+                        <div class="stat-card glass-card">
+                            <div class="stat-icon"><i data-lucide="award"></i></div>
+                            <div class="stat-info">
+                                <span class="stat-value" id="stat-top-platform">-</span>
+                                <span class="stat-label">最受歡迎平台</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Charts Section -->
+                    <div class="charts-row">
+                        <!-- Chart 1: Platform Popularity -->
+                        <div class="chart-card glass-card">
+                            <h3 class="chart-title"><i data-lucide="pie-chart"></i> AI 平台市佔率</h3>
+                            <div class="chart-container">
+                                <canvas id="chart-platforms"></canvas>
+                            </div>
+                        </div>
+
+                        <!-- Chart 2: Applications -->
+                        <div class="chart-card glass-card">
+                            <h3 class="chart-title"><i data-lucide="bar-chart-horizontal"></i> 主要應用領域分佈</h3>
+                            <div class="chart-container">
+                                <canvas id="chart-applications"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Lower Row: Comments and Action -->
+                    <div class="details-row">
+                        <!-- User comments feed -->
+                        <div class="comments-card glass-card">
+                            <h3 class="chart-title"><i data-lucide="message-square"></i> 使用者最新看法</h3>
+                            <div class="comments-feed" id="comments-container">
+                                <!-- Comments will be populated dynamically -->
+                            </div>
+                        </div>
+
+                        <!-- Reset / Management -->
+                        <div class="control-card glass-card">
+                            <h3 class="chart-title"><i data-lucide="settings"></i> 投票管理</h3>
+                            <p class="control-desc">本網站使用本機儲存空間 (LocalStorage) 記錄投票。若您需要重新測試或模擬投票，可清除資料以還原為預設展示數據。</p>
+                            <div class="control-actions">
+                                <button id="btn-reset" class="btn-secondary">
+                                    <i data-lucide="rotate-ccw"></i>
+                                    <span>重設本機數據</span>
+                                </button>
+                                <button id="btn-vote-again" class="btn-primary-outline">
+                                    <i data-lucide="plus-circle"></i>
+                                    <span>再投一票</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>© 2026 AI.VOTE. Created with Antigravity AI. 專為現代 AI 體驗打造的精緻投票系統。</p>
+        </footer>
+    </div>
+
+    <!-- Custom Script -->
+    <script src="app.js"></script>
+</body>
+</html>
