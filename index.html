@@ -52,7 +52,9 @@
 
             <!-- Panel 1: Voting Form -->
             <section class="panel active" id="panel-vote" role="tabpanel" aria-labelledby="tab-vote">
-                <form id="vote-form" class="glass-card">
+                <div class="vote-layout">
+                    <!-- Left: Voting Form -->
+                    <form id="vote-form" class="glass-card">
                     <!-- Q1: AI Platform -->
                     <div class="form-group">
                         <label class="section-title">
@@ -209,7 +211,32 @@
                         </button>
                     </div>
                 </form>
-            </section>
+
+                <!-- Right: Sidebar with QR Code & Info -->
+                <div class="vote-sidebar">
+                    <!-- QR Code Card -->
+                    <div class="share-card glass-card">
+                        <h3 class="chart-title"><i data-lucide="qr-code"></i> 手機掃描投票</h3>
+                        <div class="share-content-vertical">
+                            <div class="qrcode-wrapper">
+                                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://ai-voting-app-delta.vercel.app&color=ffffff&bgcolor=0c0a20" alt="Vercel QR Code" class="qrcode-img">
+                            </div>
+                            <p class="share-desc">掃描 QR Code，即可在手機或平板裝置上快速開啟本站並參與投票！</p>
+                        </div>
+                    </div>
+
+                    <!-- Instruction Info Card -->
+                    <div class="info-card glass-card">
+                        <h3 class="chart-title"><i data-lucide="help-circle"></i> 投票說明</h3>
+                        <ul class="info-list">
+                            <li><i data-lucide="shield-check" class="info-icon"></i> 投票數據完全匿名保護</li>
+                            <li><i data-lucide="info" class="info-icon"></i> 每個瀏覽器限投一次</li>
+                            <li><i data-lucide="line-chart" class="info-icon"></i> 提交後可觀看即時統計</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
 
             <!-- Panel 2: Live Results -->
             <section class="panel" id="panel-results" role="tabpanel" aria-labelledby="tab-results">
@@ -268,33 +295,19 @@
                             </div>
                         </div>
 
-                        <!-- Sidebar Actions & QR -->
-                        <div class="details-sidebar">
-                            <!-- QR Code Card -->
-                            <div class="share-card glass-card">
-                                <h3 class="chart-title"><i data-lucide="qr-code"></i> 手機掃描投票</h3>
-                                <div class="share-content">
-                                    <div class="qrcode-wrapper">
-                                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://ai-voting-app-delta.vercel.app&color=ffffff&bgcolor=0c0a20" alt="Vercel QR Code" class="qrcode-img">
-                                    </div>
-                                    <p class="share-desc">掃描 QR Code，即可在手機或平板裝置上快速開啟本站並參與投票！</p>
-                                </div>
-                            </div>
-
-                            <!-- Reset / Management -->
-                            <div class="control-card glass-card">
-                                <h3 class="chart-title"><i data-lucide="settings"></i> 投票管理</h3>
-                                <p class="control-desc">本網站使用本機儲存空間 (LocalStorage) 記錄投票。若您需要重新測試或模擬投票，可清除資料。</p>
-                                <div class="control-actions">
-                                    <button id="btn-reset" class="btn-secondary">
-                                        <i data-lucide="rotate-ccw"></i>
-                                        <span>重設本機數據</span>
-                                    </button>
-                                    <button id="btn-vote-again" class="btn-primary-outline">
-                                        <i data-lucide="plus-circle"></i>
-                                        <span>再投一票</span>
-                                    </button>
-                                </div>
+                        <!-- Reset / Management -->
+                        <div class="control-card glass-card">
+                            <h3 class="chart-title"><i data-lucide="settings"></i> 投票管理</h3>
+                            <p class="control-desc">本網站使用本機儲存空間 (LocalStorage) 記錄投票。若您需要重新測試或模擬投票，可清除資料。</p>
+                            <div class="control-actions">
+                                <button id="btn-reset" class="btn-secondary">
+                                    <i data-lucide="rotate-ccw"></i>
+                                    <span>重設本機數據</span>
+                                </button>
+                                <button id="btn-vote-again" class="btn-primary-outline">
+                                    <i data-lucide="plus-circle"></i>
+                                    <span>再投一票</span>
+                                </button>
                             </div>
                         </div>
                     </div>
