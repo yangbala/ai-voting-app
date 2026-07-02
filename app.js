@@ -89,7 +89,7 @@ class VotingApp {
     }
 
     loadData() {
-        const stored = localStorage.getItem('ai_votes');
+        const stored = localStorage.getItem('ai_platform_votes_v3');
         if (stored) {
             try {
                 this.votes = JSON.parse(stored);
@@ -103,7 +103,7 @@ class VotingApp {
     }
 
     saveData() {
-        localStorage.setItem('ai_votes', JSON.stringify(this.votes));
+        localStorage.setItem('ai_platform_votes_v3', JSON.stringify(this.votes));
     }
 
     resetToDefaults() {
